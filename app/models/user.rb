@@ -3,7 +3,16 @@ class User < ActiveRecord::Base
   validates :username, uniqueness: true
   validates :password, length: { minimum: 8, allow_nil: true }
 
-  has_many :goals 
+  has_many :goals
+
+  has_many :authored_comments,
+    primary_key: :id,
+    foreign_key: :author_id,
+    class_name: :Comment
+
+  has_many :comments,
+    as: :commentable
+
   attr_reader :password
 
   after_initialize :ensure_session_token

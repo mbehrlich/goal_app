@@ -6,5 +6,14 @@
   <li><%= link_to g.body, goal_url(g) %></li>
   <% end %>
 </ul>
-
+<h3>Comments</h3>
+<ul>
+  <% @user.comments.each do |comment| %>
+    <li>
+      <%= comment.body %>
+      <%= button_to "Delete Comment", comment_url(comment), method: "delete" %>
+    </li>
+  <% end %>
+</ul>
+<%= render "comments/form", object: @user %>
 <%= button_to "Create Goal", new_goal_url, method: :get, form_class: :goal %>

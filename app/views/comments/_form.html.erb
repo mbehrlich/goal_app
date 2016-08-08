@@ -1,0 +1,11 @@
+<form action="<%= comments_url %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+<label >comment
+  <textarea name="comment[body]" rows="8" cols="40"></textarea>
+</label>
+
+<input type="hidden" name="comment[commentable_type]" value="<%= object.is_a?(User) ? "User" : "Goal" %>">
+<input type="hidden" name="comment[commentable_id]" value=" <%= object.id %>">
+
+<input type="submit" value="Add Comment">
+</form>

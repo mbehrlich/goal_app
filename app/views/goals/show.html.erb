@@ -12,6 +12,17 @@
   </li>
 </ul>
 
+<h3>Comments</h3>
+<ul>
+  <% @goal.comments.each do |comment| %>
+    <li>
+      <%= comment.body %>
+      <%= button_to "Delete Comment", comment_url(comment), method: "delete" %>
+    </li>
+  <% end %>
+</ul>
+
+<%= render "comments/form", object: @goal %>
 
 <%= button_to "Edit Goal", edit_goal_url(@goal), method: :get %>
 <%= button_to "Delete Goal", goal_url(@goal), method: :delete %>

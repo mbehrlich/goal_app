@@ -108,6 +108,7 @@ def login(user)
   fill_in 'Username', with: user.username
   fill_in 'Password', with: user.password
   click_button 'Log in'
+  user 
 end
 
 def create_goal
