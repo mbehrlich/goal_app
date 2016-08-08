@@ -1,1 +1,10 @@
 <h1> <%= @user.username %> </h1>
+
+<h3>Goals</h3>
+<ul>
+  <% @goals.each do |g| %>
+  <li><%= link_to g.body, goal_url(g) %></li>
+  <% end %>
+</ul>
+
+<%= button_to "Create Goal", new_goal_url, method: :get, form_class: :goal %>

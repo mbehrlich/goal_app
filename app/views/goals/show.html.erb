@@ -1,0 +1,18 @@
+<h1> Goal</h1>
+
+<p>
+  <%=@goal.body %>
+</p>
+<ul>
+  <li>
+    completed: <%=@goal.completed%>
+  </li>
+  <li>
+    private: <%=@goal.private %>
+  </li>
+</ul>
+
+
+<%= button_to "Edit Goal", edit_goal_url(@goal), method: :get %>
+<%= button_to "Delete Goal", goal_url(@goal), method: :delete %>
+<%= link_to "User Page", user_url(@goal.user_id), method: :get %>

@@ -1,8 +1,9 @@
 class SessionsController < ApplicationController
 
+  before_action :ensure_login, only: [:destroy]
 
   def new
-    @user = User.new 
+    @user = User.new
   end
 
   def create

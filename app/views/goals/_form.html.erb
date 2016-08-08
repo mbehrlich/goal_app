@@ -1,0 +1,36 @@
+<% action_method = (action == :new) ? goals_url : goal_url(goal) %>
+
+<form  action="<%= action_method %>" method="post">
+  <% if action == :edit %>
+    <input type="hidden" name="_method" value="patch">
+  <% end %>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <label>
+    body 
+    <textarea name="goal[body]" rows="8" cols="40"><%= goal.body %></textarea>
+  </label>
+  <label>
+    Type:
+    <label>
+      Private
+        <input type="radio" name="goal[private]" value=true <%= "checked" if goal.private == true %> >
+    </label>
+    <label>
+      Public
+        <input type="radio" name="goal[private]" value=false <%= "checked" if goal.private == false %> >
+    </label>
+  </label>
+  <label>
+    Status:
+    <label>
+      completed
+        <input type="radio" name="goal[completed]" value=true <%= "checked" if goal.completed == true %> >
+    </label>
+    <label>
+      pending
+        <input type="radio" name="goal[completed]" value=false <%= "checked" if goal.completed == false %> >
+    </label>
+  </label>
+  <input type="submit" value="<%= action == :new ? 'Add Goal' : 'Update Goal' %>">
+
+</form>

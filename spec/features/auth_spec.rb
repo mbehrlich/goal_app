@@ -40,7 +40,7 @@ feature "logging out" do
     visit new_session_url
     fill_in 'Username', with: user.username
     fill_in 'Password', with: user.password
-    click_on 'Log in'
+    click_button 'Log in'
     click_on 'Log out'
     expect(page).to_not have_content(user.username)
   end
