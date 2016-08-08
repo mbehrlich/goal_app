@@ -97,3 +97,22 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
+
+def login_new_user
+  user = FactoryGirl.create(:user)
+  visit new_session_url
+  login(user)
+end
+
+def login(user)
+  visit new_session_url
+  fill_in 'Username', with: user.username
+  fill_in 'Password', with: user.password
+  click_on 'Log in'
+end
+
+def create_goal
+  visit new_goal_url
+  fill_in "body", with: "mygoalldjfakdfjadlk;jfal;nb"
+  click_on "Add Goal"
+end
