@@ -3,7 +3,17 @@
 <p>
   <%=@goal.body %>
 </p>
+
+<form action= "<%=cheers_url  %>" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="cheer[goal_id]" value="<%= @goal.id %>">
+  <input type="submit" value="Cheer!">
+</form>
+
 <ul>
+  <li>
+    cheers: <%= @goal.cheer_count %>
+  </li>
   <li>
     completed: <%=@goal.completed%>
   </li>

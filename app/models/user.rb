@@ -13,6 +13,11 @@ class User < ActiveRecord::Base
   has_many :comments,
     as: :commentable
 
+  has_many :cheers,
+    primary_key: :id,
+    foreign_key: :cheerer_id,
+    class_name: :Cheer
+
   attr_reader :password
 
   after_initialize :ensure_session_token
