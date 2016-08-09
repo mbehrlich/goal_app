@@ -37,7 +37,7 @@ class GoalsController < ApplicationController
   end
 
   def index
-    redirect_to user_url(current_user)
+    @goals = Goal.all.sort_by { |goal| goal.cheer_count }.reverse
   end
 
   def show

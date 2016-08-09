@@ -1,0 +1,33 @@
+<h1>Goals Leaderboard</h1>
+<table>
+  <thead>
+    <tr>
+      <th>
+        Goal
+      </th>
+      <th>
+        User
+      </th>
+      <th>
+        Cheers
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @goals.each do |goal| %>
+      <tr>
+        <td>
+          <%= link_to goal.body, goal_url(goal) %>
+        </td>
+        <td>
+          <%= link_to goal.user.username, user_url(goal.user) %>
+        </td>
+        <td>
+          <%= goal.cheer_count %>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= button_to "Create Goal", new_goal_url, method: :get, form_class: :goal %>

@@ -12,4 +12,10 @@
  *
  *= require_tree .
  *= require_self
+ *= require bootstrap
  */
+ #body {
+   background-color: lightblue;
+   padding-top: 50px;
+   padding-left: 30px;
+ }
